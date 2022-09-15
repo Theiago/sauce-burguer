@@ -75,14 +75,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
+
         <Button
             android:id="@+id/botaoLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="110dp"
+            android:layout_height="78dp"
             android:layout_gravity="center"
+            android:stateListAnimator="@null"
             android:text="@string/enviar"
-            android:textColor="@color/white"
-            android:stateListAnimator="@null" />
+            android:textColor="@color/white" />
     </FrameLayout>
 
 </LinearLayout>

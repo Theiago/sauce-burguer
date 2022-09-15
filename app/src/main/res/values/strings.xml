@@ -3,5 +3,5 @@
     <string name="mensagemLogin">Logue-se abaixo.</string>
     <string name="textoSenha">Senha</string>
     <string name="textoUsuario">Usuário</string>
-    <string name="enviar">Enviar</string>
+    <string name="enviar">Login</string>
 </resources>

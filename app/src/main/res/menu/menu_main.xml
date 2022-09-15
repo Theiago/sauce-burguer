@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_buscar"
+        android:icon="@drawable/ic_buscar_black"
+        android:title="Buscar"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_atualizar"
+        android:icon="@drawable/ic_atualizar_black"
+        android:title="Atualizar"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_config"
+        android:title="Config"
+        app:showAsAction="never" />
 
 </menu>

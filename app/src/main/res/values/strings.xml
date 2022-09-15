@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Sauce Burguer</string>
+    <string name="mensagemLogin">Logue-se abaixo.</string>
+    <string name="textoSenha">Senha</string>
+    <string name="textoUsuario">Usuário</string>
+    <string name="enviar">Enviar</string>
 </resources>

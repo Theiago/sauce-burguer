@@ -3,8 +3,11 @@ package br.com.mobile.sauceburguer
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -38,17 +41,17 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val intent = Intent(this, MainActivity::class.java)
         val id = item.itemId
-        when (id) {
-        R.id.action_buscar -> Toast.makeText(this, "Buscar", Toast.LENGTH_LONG).show()
-            R.id.action_atualizar -> Toast.makeText(this, "Atualizar", Toast.LENGTH_LONG).show()
-            R.id.action_sair -> startActivity(intent)
-
-        }
+        if (id == R.id.action_atualizar) {
+            binding.progressAtualizar.visibility = View.VISIBLE
+            Handler(Looper.getMainLooper()).postDelayed(
+                {
+                    binding.progressAtualizar.visibility = View.GONE
+                },
+                10000
+            )
+        } else if (id == R.id.action_sair) { startActivity(intent) }
         return true
     }
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

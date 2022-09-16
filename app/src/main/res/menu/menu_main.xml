@@ -6,7 +6,8 @@
         android:id="@+id/action_buscar"
         android:icon="@drawable/ic_buscar_black"
         android:title="Buscar"
-        app:showAsAction="always"/>
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
     <item
         android:id="@+id/action_atualizar"

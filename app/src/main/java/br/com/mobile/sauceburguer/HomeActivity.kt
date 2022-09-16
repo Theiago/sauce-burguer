@@ -1,10 +1,12 @@
 package br.com.mobile.sauceburguer
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import br.com.mobile.sauceburguer.databinding.HomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -14,7 +16,23 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // infla o menu com os botões da ActionBar
         menuInflater.inflate(R.menu.menu_main, menu)
+        // vincular evento de buscar
+        (menu?.findItem(R.id.action_buscar)?.actionView as SearchView?)?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                // ação enquanto está digitando
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                val toast = Toast.makeText(applicationContext, query, Toast.LENGTH_SHORT)
+                toast.show()
+                return false
+            }
+
+        })
         return true
     }
 
@@ -24,9 +42,13 @@ class HomeActivity : AppCompatActivity() {
         when (id) {
         R.id.action_buscar -> Toast.makeText(this, "Buscar", Toast.LENGTH_LONG).show()
             R.id.action_atualizar -> Toast.makeText(this, "Atualizar", Toast.LENGTH_LONG).show()
+
         }
         return true
     }
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

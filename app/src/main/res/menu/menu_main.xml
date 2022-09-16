@@ -19,5 +19,9 @@
         android:id="@+id/action_config"
         android:title="Config"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_sair"
+        android:title="Sair"
+        app:showAsAction="never" />
 
 </menu>

@@ -1,6 +1,7 @@
 package br.com.mobile.sauceburguer
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -16,9 +17,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // infla o menu com os botões da ActionBar
         menuInflater.inflate(R.menu.menu_main, menu)
-        // vincular evento de buscar
         (menu?.findItem(R.id.action_buscar)?.actionView as SearchView?)?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
@@ -37,11 +36,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
+        val intent = Intent(this, MainActivity::class.java)
         val id = item.itemId
         when (id) {
         R.id.action_buscar -> Toast.makeText(this, "Buscar", Toast.LENGTH_LONG).show()
             R.id.action_atualizar -> Toast.makeText(this, "Atualizar", Toast.LENGTH_LONG).show()
+            R.id.action_sair -> startActivity(intent)
 
         }
         return true

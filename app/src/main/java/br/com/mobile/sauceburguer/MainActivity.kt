@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val senha = binding.campoSenha.text.toString()
 
         intent.putExtra("nome_usuario", nome_usuario)
-        if (senha == "123456" && nome_usuario == "impacta") {
+        if (senha == "impacta" && nome_usuario == "aluno") {
             startActivity(intent)
         } else {
             Toast.makeText(this, "Usuário e/ou senhas incorretos.", Toast.LENGTH_SHORT).show()

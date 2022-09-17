@@ -14,7 +14,12 @@
         android:theme="@style/Theme.SauceBurguer"
         tools:targetApi="31">
         <activity
+            android:name=".CarrinhoActivity"
+            android:theme="@style/AppTheme.Toolbar"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
+            android:theme="@style/AppTheme.Toolbar"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

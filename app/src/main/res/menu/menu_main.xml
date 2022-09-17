@@ -6,15 +6,19 @@
         android:id="@+id/action_buscar"
         android:icon="@drawable/ic_buscar_black"
         android:title="Buscar"
+        android:iconTint="@color/black"
         app:showAsAction="always"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
     <item
         android:id="@+id/action_atualizar"
-        android:icon="@drawable/ic_atualizar_black"
+        android:icon="@drawable/ic_atualizar_white"
         android:title="Atualizar"
         app:showAsAction="ifRoom" />
-
+    <item
+        android:id="@+id/action_carrinho"
+        android:title="Carrinho"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_config"
         android:title="Config"

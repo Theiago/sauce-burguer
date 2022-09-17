@@ -3,73 +3,97 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <include layout="@layout/toolbar" android:id="@+id/toolbarInclude"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="100dp">
-
-        <TextView
-            android:id="@+id/textView"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lanche1"
-            android:layout_margin="10dp"/>
-
-
+            android:orientation="vertical"
+            android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/lanche1"
+            android:layout_height="200dp"
+            android:layout_width="200dp"
+            android:adjustViewBounds="true"
+            android:layout_margin="3dp"
+            />
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/lancheCheddar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lanche2"
-            android:layout_margin="10dp"/>
+            android:text="Cheddar"
+            android:layout_gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/lanche2"
+                android:layout_height="200dp"
+                android:layout_width="200dp"
+                android:adjustViewBounds="true"
+                />
+            <TextView
+                android:id="@+id/lancheCheddar2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cheddar"
+                android:layout_gravity="center"/>
+        </LinearLayout>
     </LinearLayout>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="100dp">
-
-        <TextView
-            android:id="@+id/textView111"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lanche3"
-            android:layout_margin="10dp"/>
-
-
-        <TextView
-            android:id="@+id/textView244"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/lanche3"
+                android:layout_height="200dp"
+                android:layout_width="200dp"
+                android:adjustViewBounds="true"
+                android:layout_margin="3dp"
+                />
+            <TextView
+                android:id="@+id/lancheCheddar3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cheddar"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lanche4"
-            android:layout_margin="10dp"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="100dp">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lanche5"
-            android:layout_margin="10dp"/>
-
-
-        <TextView
-            android:id="@+id/textView24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lanche6"
-            android:layout_margin="10dp"/>
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/lanche4"
+                android:layout_height="200dp"
+                android:layout_width="200dp"
+                android:adjustViewBounds="true"
+                />
+            <TextView
+                android:id="@+id/lancheCheddar4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cheddar"
+                android:layout_gravity="center"/>
+        </LinearLayout>
     </LinearLayout>
 
         <ProgressBar

@@ -4,4 +4,6 @@
     <string name="textoSenha">Senha</string>
     <string name="textoUsuario">Usuário</string>
     <string name="enviar">Login</string>
+    <string name="abrir">Abrir</string>
+    <string name="fechar">Fechar</string>
 </resources>

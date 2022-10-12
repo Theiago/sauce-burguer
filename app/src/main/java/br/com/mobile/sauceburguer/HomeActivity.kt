@@ -9,15 +9,21 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.mobile.sauceburguer.databinding.HomeBinding
+import com.google.android.material.navigation.NavigationView
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val binding by lazy {
         HomeBinding.inflate(layoutInflater)
     }
+
+    private var lanches = listOf<Lanches>()
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -63,24 +69,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.lanche1.setOnClickListener{
-            Toast.makeText(this, "Adicionado ao carrinho.", Toast.LENGTH_LONG).show()
-        }
-        binding.lanche2.setOnClickListener{
-            Toast.makeText(this, "Adicionado ao carrinho.", Toast.LENGTH_LONG).show()
-        }
-        binding.lanche3.setOnClickListener{
-            Toast.makeText(this, "Adicionado ao carrinho.", Toast.LENGTH_LONG).show()
-        }
-        binding.lanche4.setOnClickListener{
-            Toast.makeText(this, "Adicionado ao carrinho.", Toast.LENGTH_LONG).show()
-        }
-
-        binding.lanche1.setImageResource(R.drawable.lanche)
-        binding.lanche2.setImageResource(R.drawable.lanche)
-        binding.lanche3.setImageResource(R.drawable.lanche)
-        binding.lanche4.setImageResource(R.drawable.lanche)
-
         val params = this.intent.extras
         val nome_usuario = params?.getString("nome_usuario")
         Toast.makeText(this, "Bem vindo $nome_usuario", Toast.LENGTH_LONG).show()
@@ -89,5 +77,66 @@ class HomeActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Monte seu pedido"
 
+        configuraMenuLateral()
+
+        binding.recyclerLanches?.layoutManager = LinearLayoutManager(this)
+        binding.recyclerLanches?.setHasFixedSize(true)
+
     }
+
+    override fun onResume() {
+        super.onResume()
+        this.taskLanches()
+    }
+
+    private fun taskLanches() {
+        Thread {
+            lanches = LanchesService.getLanches()
+            runOnUiThread {
+                binding.recyclerLanches?.adapter =
+                    LanchesAdapter(lanches) { onClickDisciplina(it) }
+            }
+        }.start()
+    }
+
+    fun onClickDisciplina(lanches: Lanches) {
+        Toast.makeText(this, "Funcionou", Toast.LENGTH_LONG).show()
+
+      //  var it = Intent(this, DisciplinaActivity::class.java)
+      //  it.putExtra("disciplina", disciplina)
+
+      //  startActivity(it)
+
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_lanches -> {
+                Toast.makeText(this, "Lanches", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_sobre -> {
+                Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT).show()
+            }
+            R.id.nav_localizacao -> {
+                Toast.makeText(this, "Localização", Toast.LENGTH_SHORT).show()
+            }
+        }
+        binding.layoutMenuLateral.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    private fun configuraMenuLateral() {
+        var toggle = ActionBarDrawerToggle(
+            this,
+            binding.layoutMenuLateral,
+            binding.toolbarInclude.toolbar,
+            R.string.abrir,
+            R.string.fechar
+        )
+        binding.layoutMenuLateral.addDrawerListener(toggle)
+        toggle.syncState()
+
+        binding.menuLateral.setNavigationItemSelectedListener(this)
+    }
+
 }

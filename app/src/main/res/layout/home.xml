@@ -1,106 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <include layout="@layout/toolbar" android:id="@+id/toolbarInclude"/>
-
+    android:layout_height="match_parent"
+    android:id="@+id/layoutMenuLateral"
+    tools:context=".HomeActivity">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/toolbar" android:id="@+id/toolbarInclude"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerLanches"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-        <ImageView
-            android:id="@+id/lanche1"
-            android:layout_height="200dp"
-            android:layout_width="200dp"
-            android:adjustViewBounds="true"
-            android:layout_margin="3dp"
-            />
-        <TextView
-            android:id="@+id/lancheCheddar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cheddar"
-            android:layout_gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-            <ImageView
-                android:id="@+id/lanche2"
-                android:layout_height="200dp"
-                android:layout_width="200dp"
-                android:adjustViewBounds="true"
-                />
-            <TextView
-                android:id="@+id/lancheCheddar2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cheddar"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-            <ImageView
-                android:id="@+id/lanche3"
-                android:layout_height="200dp"
-                android:layout_width="200dp"
-                android:adjustViewBounds="true"
-                android:layout_margin="3dp"
-                />
-            <TextView
-                android:id="@+id/lancheCheddar3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cheddar"
-                android:layout_gravity="center"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-            <ImageView
-                android:id="@+id/lanche4"
-                android:layout_height="200dp"
-                android:layout_width="200dp"
-                android:adjustViewBounds="true"
-                />
-            <TextView
-                android:id="@+id/lancheCheddar4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cheddar"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical">
+        </androidx.recyclerview.widget.RecyclerView>
+
     </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/progressAtualizar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:layout_gravity="center"
-/>
-</LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressAtualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_gravity="center"/>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/menuLateral"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/menu_lateral_cabecalho"
+        app:menu="@menu/menu_lateral">
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

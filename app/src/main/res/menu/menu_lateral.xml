@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_lanches"
+            android:icon="@drawable/ic_burguer"
+            android:title="Lanches"
+            android:checked="true" />
+
+        <item
+            android:id="@+id/nav_localizacao"
+            android:icon="@drawable/ic_local_black"
+            android:title="Localização" />
+
+        <item
+            android:id="@+id/nav_sobre"
+            android:icon="@drawable/ic_configuracoes_black"
+            android:title="Sobre" />
+    </group>
+</menu>

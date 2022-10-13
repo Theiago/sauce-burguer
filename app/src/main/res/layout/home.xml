@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/layoutMenuLateral"
     tools:context=".HomeActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,16 +19,18 @@
             android:layout_height="wrap_content"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical">
+
         </androidx.recyclerview.widget.RecyclerView>
+
+        <ProgressBar
+            android:id="@+id/progressAtualizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressAtualizar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_gravity="center"/>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/menuLateral"

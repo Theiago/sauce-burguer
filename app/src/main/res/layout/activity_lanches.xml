@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LanchesActivity"
+    android:layout_marginTop="150dp">
+
+
+    <ImageView
+        android:id="@+id/imageLanche"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/nomeLanche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NomeLanche"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/precoLanche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 0,00"
+        android:textSize="20dp"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/pesoCarne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tamanho"
+        android:textSize="20dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/addCarrinho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar ao carrinho"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

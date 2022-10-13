@@ -38,7 +38,7 @@ class LanchesAdapter (val lanches: List<Lanches>, val onClick: (Lanches) -> Unit
 
         holder.cardNome.text = lanches.nome
 
-        Picasso.with(holder.itemView.context).load(lanches.foto).fit().into(holder.cardImage, object: com.squareup.picasso.Callback {
+        Picasso.with(holder.itemView.context).load(lanches.foto).into(holder.cardImage, object: com.squareup.picasso.Callback {
             override fun onError() {
 
             }

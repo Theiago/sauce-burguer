@@ -50,9 +50,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val id = item.itemId
         if (id == R.id.action_atualizar) {
             binding.progressAtualizar.visibility = View.VISIBLE
+            binding.recyclerLanches.visibility = View.GONE
             Handler(Looper.getMainLooper()).postDelayed(
                 {
                     binding.progressAtualizar.visibility = View.GONE
+                    binding.recyclerLanches.visibility = View.VISIBLE
                 },
                 10000
             )
@@ -100,22 +102,22 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     fun onClickDisciplina(lanches: Lanches) {
-        Toast.makeText(this, "Funcionou", Toast.LENGTH_LONG).show()
 
-      //  var it = Intent(this, DisciplinaActivity::class.java)
-      //  it.putExtra("disciplina", disciplina)
+        var it = Intent(this, LanchesActivity::class.java)
+        it.putExtra("lanches", lanches)
 
-      //  startActivity(it)
+        startActivity(it)
 
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_lanches -> {
-                Toast.makeText(this, "Lanches", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Você já está nessa aba.", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_sobre -> {
-                Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT).show()
+                var it = Intent(this, SobreActivity::class.java)
+                startActivity(it)
             }
             R.id.nav_localizacao -> {
                 Toast.makeText(this, "Localização", Toast.LENGTH_SHORT).show()
@@ -138,5 +140,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.menuLateral.setNavigationItemSelectedListener(this)
     }
+
 
 }

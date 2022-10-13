@@ -28,7 +28,7 @@ class LanchesActivity : AppCompatActivity() {
         binding.precoLanche.text = d.preco
         binding.pesoCarne.text = "Tamanho: ${d.peso_carne}"
 
-        supportActionBar?.title = "Smash Cheddar"
+        supportActionBar?.title = "Informações sobre o produto"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }

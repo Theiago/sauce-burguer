@@ -6,4 +6,8 @@
     <string name="enviar">Login</string>
     <string name="abrir">Abrir</string>
     <string name="fechar">Fechar</string>
+    <string name="NomeDoLanche">Nome do Lanche</string>
+    <string name="urlDaFoto">URL da Foto</string>
+    <string name="inserirPreco">Qual o valor?</string>
+    <string name="TamanhoProduto">Tamanho do produto</string>
 </resources>

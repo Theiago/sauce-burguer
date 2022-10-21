@@ -20,6 +20,10 @@
         android:title="Carrinho"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_adicionar"
+        android:title="Adicionar"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_config"
         android:title="Config"
         app:showAsAction="never" />

@@ -45,6 +45,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val cadastro = Intent(this, CadastroLanche::class.java)
         val carrinho = Intent(this, CarrinhoActivity::class.java)
         val intent = Intent(this, MainActivity::class.java)
         val id = item.itemId
@@ -63,6 +64,9 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         else if (id == R.id.action_carrinho) {
             startActivity(carrinho)
+        }
+        else if (id == R.id.action_adicionar) {
+            startActivity(cadastro)
         }
         return true
     }

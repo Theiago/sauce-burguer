@@ -6,7 +6,7 @@
 # - Cadastro de lanche dentro do próprio aplicativo, usando API. (Caso esteja sem conexão, utiliza banco de dados local)
 
 ## A implementar:
-# - Pesquisa
-# - Atualizar
-# - Lembrar dados/informações
-# - Remover lanche
+- Pesquisa
+- Atualizar
+- Lembrar dados/informações
+- Remover lanche

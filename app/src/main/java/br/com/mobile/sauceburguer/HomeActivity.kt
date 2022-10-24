@@ -57,7 +57,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     binding.progressAtualizar.visibility = View.GONE
                     binding.recyclerLanches.visibility = View.VISIBLE
                 },
-                10000
+                1000
             )
         } else if (id == R.id.action_sair) {
             finish()

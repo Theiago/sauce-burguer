@@ -16,21 +16,40 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val nomeUsuario = Prefs.getString("nomeUsuario")
+        val senhaUsuario = Prefs.getString("senhaUsuario")
+        val checkLogin = Prefs.getBoolean("checkLogin")
+
         binding.imagemLogin.setImageResource(R.drawable.sauce)
         binding.textoLogin.text = "Usuário: "
         binding.textoSenha.text = "Senha: "
 
-        binding.botaoLogin.setOnClickListener {
-        val intent = Intent(this, HomeActivity::class.java)
-        val nome_usuario = binding.campoEmail.text.toString()
-        val senha = binding.campoSenha.text.toString()
+        binding.campoEmail.setText(nomeUsuario)
+        binding.campoSenha.setText(senhaUsuario)
+        binding.checkLogin.isChecked = checkLogin
 
-        intent.putExtra("nome_usuario", nome_usuario)
-        if (senha == "impacta" && nome_usuario == "aluno") {
-            startActivity(intent)
-        } else {
-            Toast.makeText(this, "Usuário e/ou senhas incorretos.", Toast.LENGTH_SHORT).show()
-        }
+        binding.botaoLogin.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            val nome_usuario = binding.campoEmail.text.toString()
+            val senha = binding.campoSenha.text.toString()
+
+            intent.putExtra("nome_usuario", nome_usuario)
+
+            val checkLogin = binding.checkLogin.isChecked
+            if (checkLogin) {
+                Prefs.setString("nomeUsuario", nome_usuario)
+                Prefs.setString("senhaUsuario", senha)
+            } else {
+                Prefs.setString("nomeUsuario", "")
+                Prefs.setString("senhaUsuario", "")
+            }
+                Prefs.setBoolean("checkLogin", checkLogin)
+
+            if (nome_usuario == "aluno" && senha == "impacta") {
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Usuário e/ou senhas incorretos.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

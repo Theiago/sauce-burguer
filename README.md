@@ -1,6 +1,14 @@
-# sauce-burguer
-# Projeto faculdade
-## Pendente:
+# Aplicativo para administração de hamburgueria
 
-Adicionar: Incluir um novo país. Ao clicar, direciona para uma nova tela/Activity de ca-
-dastro. Essa segunda tela deve ter uma opção de voltar na ActionBar (up navigation)
+## Funções atuais:
+- Sistema de login (to-do: Sistema de autenticação com níveis)
+- Lembrar dados de login/informações
+- Página com informações do lanche usando RecycleView
+- Cadastro de lanche dentro do próprio aplicativo, usando API. (Caso esteja sem conexão, utiliza banco de dados local)
+
+--
+
+## A implementar:
+- Pesquisa
+- Atualizar
+- Remover lanche

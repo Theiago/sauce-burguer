@@ -44,6 +44,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Adicionar ao carrinho"
+        android:layout_weight="0"
         android:layout_gravity="center"/>
+    <Button
+        android:layout_marginTop="180dp"
+        android:id="@+id/deletarLanche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remover lanche"
+        android:layout_gravity="center"
+        android:backgroundTint="#FF0000" />
 
 </LinearLayout>

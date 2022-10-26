@@ -45,11 +45,19 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
         val cadastro = Intent(this, CadastroLanche::class.java)
         val carrinho = Intent(this, CarrinhoActivity::class.java)
         val intent = Intent(this, MainActivity::class.java)
         val id = item.itemId
         if (id == R.id.action_atualizar) {
+            Thread {
+                lanches = LanchesService.getLanches()
+                runOnUiThread {
+                    binding.recyclerLanches?.adapter =
+                        LanchesAdapter(lanches) { onClickDisciplina(it) }
+                }
+            }.start()
             binding.progressAtualizar.visibility = View.VISIBLE
             binding.recyclerLanches.visibility = View.GONE
             Handler(Looper.getMainLooper()).postDelayed(
@@ -57,7 +65,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     binding.progressAtualizar.visibility = View.GONE
                     binding.recyclerLanches.visibility = View.VISIBLE
                 },
-                1000
+                500
             )
         } else if (id == R.id.action_sair) {
             finish()
@@ -101,6 +109,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             runOnUiThread {
                 binding.recyclerLanches?.adapter =
                     LanchesAdapter(lanches) { onClickDisciplina(it) }
+                // Notificação
+               // val intent = Intent(this, MainActivity::class.java)
+               // intent.putExtra("lanches", lanches[0])
+               // NotificationUtil.create(1, intent, "Lanche Sauce",
+               //     "Lanche: ${lanches[0].nome}")
             }
         }.start()
     }
@@ -108,7 +121,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun onClickDisciplina(lanches: Lanches) {
 
         var it = Intent(this, LanchesActivity::class.java)
+        val params = this.intent.extras
+        val nome_usuario = params?.getString("nome_usuario")
+
         it.putExtra("lanches", lanches)
+        it.putExtra("nomeUsuario", nome_usuario)
 
         startActivity(it)
 

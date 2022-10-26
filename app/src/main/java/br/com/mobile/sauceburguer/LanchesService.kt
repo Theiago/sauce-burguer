@@ -39,6 +39,14 @@ object LanchesService
 
     }
 
+    fun deleteLanche(lanches: Lanches) {
+        try {
+            HttpHelper.delete("$host/lanches/${lanches.id}")
+        } catch (ex: Exception) {
+            DatabaseManager.getLanchesDAO().delete(lanches)
+        }
+    }
+
     inline fun <reified T> parseJson(json: String): T {
         val type = object : TypeToken<T>(){}.type
         return Gson().fromJson<T>(json, type)

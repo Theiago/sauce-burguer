@@ -45,7 +45,8 @@ class MainActivity : AppCompatActivity() {
             }
                 Prefs.setBoolean("checkLogin", checkLogin)
 
-            if (nome_usuario == "aluno" && senha == "impacta") {
+            if (nome_usuario == "adm" || nome_usuario == "aluno" && senha == "impacta" ) {
+                Prefs.setString("nomeUsuario", nome_usuario)
                 startActivity(intent)
             } else {
                 Toast.makeText(this, "Usuário e/ou senhas incorretos.", Toast.LENGTH_SHORT).show()

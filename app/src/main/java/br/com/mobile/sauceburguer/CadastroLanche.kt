@@ -2,6 +2,8 @@ package br.com.mobile.sauceburguer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import android.widget.Toast
 import br.com.mobile.sauceburguer.databinding.ActivityCadastroLancheBinding
 
 class CadastroLanche : AppCompatActivity() {
@@ -14,6 +16,9 @@ class CadastroLanche : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        supportActionBar?.title = "Cadastrar novo lanche"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         binding.cadastrarLanche.setOnClickListener {
             val d = Lanches()
             d.nome = binding.inserirNome.text.toString()
@@ -21,13 +26,25 @@ class CadastroLanche : AppCompatActivity() {
             d.foto = binding.inserirUrlFoto.text.toString()
             d.peso_carne = binding.inserirTamanhoProduto.text.toString()
 
-            Thread {
-                LanchesService.saveLanche(d)
-                runOnUiThread {
-                    finish()
-                }
-            }.start()
+            if (d.nome == "" || d.preco == "" || d.foto == "" || d.peso_carne == "") {
+                Toast.makeText(this, "Preencha todos os campos.", Toast.LENGTH_LONG).show()
+            } else {
+                Thread {
+                    LanchesService.saveLanche(d)
+                    runOnUiThread {
+                        finish()
+                    }
+                }.start()
+            }
         }
-
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == android.R.id.home) {
+            finish()
+        }
+        return true
+    }
+
 }

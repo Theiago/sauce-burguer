@@ -1,13 +1,12 @@
 package br.com.mobile.sauceburguer
 
-import android.R
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import br.com.mobile.sauceburguer.databinding.ActivityLanchesBinding
 import com.squareup.picasso.Picasso
+import okhttp3.OkHttpClient
 
 
 class LanchesActivity : AppCompatActivity() {
@@ -17,10 +16,26 @@ class LanchesActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val nome_usuario = Prefs.getString("nomeUsuario")
+
+        if (nome_usuario == "adm") {
+            binding.deletarLanche.visibility = View.VISIBLE
+        }
+
         var d = intent.extras?.getSerializable("lanches") as Lanches
+
+        binding.deletarLanche.setOnClickListener {
+            Thread {
+                LanchesService.deleteLanche(d)
+                runOnUiThread {
+                    finish()
+                }
+            }.start()
+        }
 
         Picasso.with(this).load(d.foto).into(binding.imageLanche)
 
@@ -31,7 +46,9 @@ class LanchesActivity : AppCompatActivity() {
         supportActionBar?.title = "Informações sobre o produto"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId

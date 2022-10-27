@@ -10,5 +10,3 @@
 
 ## A implementar:
 - Pesquisa
-- Atualizar
-- Remover lanche

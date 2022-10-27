@@ -9,6 +9,3 @@
 
 ## A implementar:
 - Pesquisa
-- Atualizar
-- Lembrar dados/informações
-- Remover lanche

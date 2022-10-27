@@ -1,4 +1,4 @@
-package br.com.mobile.sauceburguer
+/**package br.com.mobile.sauceburguer
 
 import android.content.Intent
 import android.util.Log
@@ -32,4 +32,4 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     }
 
-}
+}*/

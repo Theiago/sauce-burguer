@@ -1,5 +1,6 @@
 package br.com.mobile.sauceburguer
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -27,6 +28,16 @@ class LanchesActivity : AppCompatActivity() {
         }
 
         var d = intent.extras?.getSerializable("lanches") as Lanches
+
+
+        binding.addCarrinho.setOnClickListener {
+            // Notificação
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("lanches", d.nome)
+            NotificationUtil.create(1, intent, "Adicionado ao carrinho:",
+                 "Lanche: ${d.nome}")
+        }
+
 
         binding.deletarLanche.setOnClickListener {
             Thread {

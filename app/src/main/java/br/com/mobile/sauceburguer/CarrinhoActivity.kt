@@ -18,7 +18,10 @@ class CarrinhoActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarInclude.toolbar)
         supportActionBar?.title = "Carrinho"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId

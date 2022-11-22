@@ -53,6 +53,7 @@
         android:layout_height="wrap_content"
         android:text="Remover lanche"
         android:layout_gravity="center"
-        android:backgroundTint="#FF0000" />
+        android:backgroundTint="#FF0000"
+        android:visibility="invisible"/>
 
 </LinearLayout>

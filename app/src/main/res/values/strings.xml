@@ -10,4 +10,7 @@
     <string name="urlDaFoto">URL da Foto</string>
     <string name="inserirPreco">Qual o valor?</string>
     <string name="TamanhoProduto">Tamanho do produto</string>
+    <string name="API_KEY">AIzaSyCY2aAzy_l5-pQ7bXz4hgRV73ki05w21Kg</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

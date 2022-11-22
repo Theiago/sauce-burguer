@@ -29,9 +29,18 @@ class LanchesActivity : AppCompatActivity() {
 
         var d = intent.extras?.getSerializable("lanches") as Lanches
 
-
         binding.addCarrinho.setOnClickListener {
-            // Notificação
+            val c = Carrinho()
+            c.nome = d.nome
+            c.preco = d.preco
+
+            Thread {
+                CarrinhoService.addCarrinho(c)
+                runOnUiThread {
+                    finish()
+                }
+            }.start()
+
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("lanches", d.nome)
             NotificationUtil.create(1, intent, "Adicionado ao carrinho:",

@@ -8,4 +8,30 @@
     android:orientation="vertical">
     <include layout="@layout/toolbar" android:id="@+id/toolbarInclude"/>
 
+    <EditText
+        android:id="@+id/mesaNumero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Número da mesa"
+        android:inputType="number"
+        android:textAlignment="center"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCarrinho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+        <Button
+            android:id="@+id/enviarPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar a cozinha" android:layout_gravity="center"/>
+
 </LinearLayout>

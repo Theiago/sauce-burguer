@@ -1,10 +1,13 @@
 package br.com.mobile.sauceburguer
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import br.com.mobile.sauceburguer.databinding.ActivityCadastroLancheBinding
+
 
 class CadastroLanche : AppCompatActivity() {
 
@@ -15,6 +18,9 @@ class CadastroLanche : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        val policy = ThreadPolicy.Builder().permitAll().build()
+        StrictMode.setThreadPolicy(policy)
 
         supportActionBar?.title = "Cadastrar novo lanche"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

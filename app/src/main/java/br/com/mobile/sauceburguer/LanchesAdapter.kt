@@ -3,6 +3,7 @@ package br.com.mobile.sauceburguer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -21,7 +22,6 @@ class LanchesAdapter (val lanches: List<Lanches>, val onClick: (Lanches) -> Unit
             cardImage = view.findViewById(R.id.cardImage)
             cardView = view.findViewById(R.id.cardDisciplina)
         }
-
     }
 
     override fun getItemCount() = this.lanches.size

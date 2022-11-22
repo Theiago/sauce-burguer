@@ -27,6 +27,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
+        val add = menu.findItem(R.id.action_adicionar)
+        if (this.intent.extras?.getString("nome_usuario") == "adm") {
+            add.setVisible(true)
+        }
         (menu?.findItem(R.id.action_buscar)?.actionView as SearchView?)?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
@@ -141,7 +145,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(it)
             }
             R.id.nav_localizacao -> {
-                Toast.makeText(this, "Localização", Toast.LENGTH_SHORT).show()
+                var it = Intent(this, MapasActivity::class.java)
+                startActivity(it)
             }
         }
         binding.layoutMenuLateral.closeDrawer(GravityCompat.START)

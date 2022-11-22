@@ -28,7 +28,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Versão: 0.1 alpha"
+        android:text="Versão: 0.8 beta"
         android:textSize="15dp"
         android:layout_gravity="center"/>
 </LinearLayout>

@@ -1,5 +1,6 @@
 package br.com.mobile.sauceburguer
 
+import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -14,7 +15,7 @@ object CarrinhoService {
 
     }
 
-    fun addCozinha(carrinho: Carrinho) {
+    fun addCozinha(carrinho: MutableList<String>) {
         var json = GsonBuilder().create().toJson(carrinho)
         HttpHelper.post("$host/cozinha", json)
     }
@@ -27,7 +28,7 @@ object CarrinhoService {
 
         carrinho = parseJson<MutableList<Carrinho>>(json)
 
-        //Log.d(CarrinhoService.TAG, json)
+        Log.d("Carrinho", json)
 
         return carrinho
     }

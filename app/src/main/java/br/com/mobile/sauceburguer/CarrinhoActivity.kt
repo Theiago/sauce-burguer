@@ -3,10 +3,13 @@ package br.com.mobile.sauceburguer
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.mobile.sauceburguer.databinding.ActivityCarrinhoBinding
+import br.com.mobile.sauceburguer.databinding.ActivityLanchesBinding
+import br.com.mobile.sauceburguer.databinding.AdapterCarrinhoBinding
 import com.google.android.material.navigation.NavigationView
 
 public class CarrinhoActivity : AppCompatActivity() {
@@ -15,7 +18,12 @@ public class CarrinhoActivity : AppCompatActivity() {
         ActivityCarrinhoBinding.inflate(layoutInflater)
     }
 
+    private val adapterbinding by lazy {
+        AdapterCarrinhoBinding.inflate(layoutInflater)
+    }
+
     private var carrinho = listOf<Carrinho>()
+    private var cozinha =  mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +38,21 @@ public class CarrinhoActivity : AppCompatActivity() {
 
         binding.enviarPedido.setOnClickListener {
             if (binding.mesaNumero.text.toString() == "") {
+                if (adapterbinding.comboCheck.isActivated) {
+                    Toast.makeText(this, "Funfou", Toast.LENGTH_SHORT).show()
+                }
                 Toast.makeText(this, "Insira o número da mesa.", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Pedido enviado para a cozinha.", Toast.LENGTH_SHORT).show()
+                cozinha.add("Mesa: " + binding.mesaNumero.text.toString())
+                for (item in carrinho) cozinha.add(item.nome)
+
+                Thread {
+                    CarrinhoService.addCozinha(cozinha)
+                    runOnUiThread {
+                        finish()
+                    }
+                }.start()
+
             }
         }
 
